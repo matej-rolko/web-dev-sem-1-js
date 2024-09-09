@@ -1,0 +1,25 @@
+.exercise-div{
+    padding: 20px 20px;
+    border-top: 1px lightgray solid;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+#hover-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+#secret-div {
+    margin-top: 20px;
+    font-size: 18px;
+    color: blue;
+}
