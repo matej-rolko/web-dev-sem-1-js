@@ -69,3 +69,49 @@ function withinRange(num1, num2, num3) {
 console.log("Is 5 within the range of 3 and 99? " + withinRange(5, 3, 99))
 console.log("Is -5 within the range of 0 and 99? " + withinRange(-5, 0, 99))
 console.log("Is 33 within the range of 33 and 99? " + withinRange(33, 33, 99))
+
+
+// Using if else and loops, create a javascript application that will randomly select a number between 1 and 100.
+// Ask the user for a quess (between 1 and 100) 
+// Let the user know if the quess is higher or lower than the randomly selected number
+// Ask for a new quess, if the quess was not correct. 
+// Let the user know that they guessed correctly and how many guesses they used, if the guess correctly.
+var guessInput = document.getElementById("guess-num")
+var guessBtn = document.getElementById("guess-btn")
+var guessAnswer = document.getElementById("guess-answer")
+var playBtn = document.getElementById("play-guess-btn")
+var guessTxt = document.getElementById("guess-text")
+var rNumber = 0
+var guessCount = 0
+
+playBtn.addEventListener("click", function(){
+    guessInput.classList.remove("hidden")
+    guessBtn.classList.remove("hidden")
+    guessAnswer.classList.remove("hidden")
+    guessTxt.classList.remove("hidden")
+    guessAnswer.textContent = ""
+    playBtn.classList.add("hidden")
+    rNumber = Math.floor(Math.random() * 101);
+    console.log("Random number game is: " + rNumber)
+})
+
+guessBtn.addEventListener("click", function() {
+    const val = parseInt(guessInput.value);
+    guessCount++;
+    if(val > rNumber) {
+        guessAnswer.textContent = "Guess Lower"
+    } else if(val < rNumber) {
+        guessAnswer.textContent = "Guess Higher"
+    } else if(val == rNumber){
+        guessAnswer.textContent = "Hooray! You guessed correctly in " + guessCount + " tries!";
+        playBtn.classList.remove("hidden")
+        guessInput.classList.add("hidden")
+        guessBtn.classList.add("hidden")
+        guessTxt.classList.add("hidden")
+        guessInput.value = ""
+        guessCount = 0;
+    } else {
+        guessAnswer.textContent = "Incorrect value!"
+    }
+})
+

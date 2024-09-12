@@ -1,3 +1,8 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
 .exercise-div{
     padding: 20px 20px;
     border-top: 1px lightgray solid;
@@ -22,4 +27,35 @@
     margin-top: 20px;
     font-size: 18px;
     color: blue;
+}
+
+.number {
+    margin: 5px;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.even {
+    background-color: lightblue;
+}
+.odd {
+    background-color: lightcoral;
+}
+.highlight {
+    border: 2px solid black;
+}
+
+.footer {
+    background-color: rgb(0, 46, 109);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    background-color: rgb(251, 176, 64);
+    padding: 30px;
+    margin: 0;
+    color: white;
 }
