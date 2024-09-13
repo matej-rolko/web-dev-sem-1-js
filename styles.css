@@ -55,7 +55,9 @@ body {
 
 .header {
     background-color: rgb(251, 176, 64);
-    padding: 30px;
+    padding: 12px;
     margin: 0;
-    color: white;
+    color: rgb(0, 46, 109);
+    display: flex;
+    align-items: center;
 }

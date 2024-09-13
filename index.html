@@ -9,7 +9,10 @@
 </head>
 <body>
     <header class="header">
-        <h1>JS basics exercises</h1>
+        <div style="display:block;">
+        <h1>Individual Javascript Exercises</h1>
+        <h2>Solutions by Matej Rolko</h2>
+    </div><img src="images/author.jpg" width="150px" title="Matej Rolko" style="border-radius: 50%; margin-left: auto;">
     </header>
     <div class="exercise-div">
         <p>Hover button exercise:</p>
@@ -29,8 +32,10 @@
         <p>Mr. Duck</p>
         <img id="duck-img" src="images/rubberDuck.png" width="150px">
         <p id="duck-name"></p>
-        <input type="text" id="duck-input" />
-        <button id="explain-button">Explain problem</button>
+        <form id="duckForm">
+            <input type="text" id="duck-input" />
+            <button id="explain-button">Explain problem</button>
+        </form>
         <div id="duck-list"></div>
     </div>
     <div class="exercise-div">
@@ -43,10 +48,14 @@
     </div>
     <div class="exercise-div">
         <p>Higher or lower</p>
-        <button id="play-guess-btn">PLAY</button>
         <p id="guess-text" class="hidden">Can you guess the number I chose?</p>
-        <input type="number" class="hidden" id="guess-num" />
-        <button class="hidden" id="guess-btn">GUESS</button>
+        <form id="play-guess-form">
+            <button id="play-guess-btn">PLAY</button>
+        </form>
+        <form id="guess-form">
+            <input type="number" class="hidden" id="guess-num" />
+            <button class="hidden" id="guess-btn">GUESS</button>
+        </form>
         <p class="hidden" id="guess-answer"></p>
     </div>
     <div class="exercise-div">
@@ -54,7 +63,7 @@
     </div>
     <footer class="footer">
         <img src="images/cphb.png">
-        <p style="color: white; padding: 10px; margin: 0; text-align: center;">Matej Rolko, 2024</p>
+        <p style="color: white; padding: 10px; margin: 0; text-align: center;">Matej Rolko, 13/09/2024</p>
     </footer>
 </body>
 <script src="jsBasicsDayOne.js"></script>

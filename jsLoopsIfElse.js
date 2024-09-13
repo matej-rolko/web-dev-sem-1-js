@@ -84,7 +84,18 @@ var guessTxt = document.getElementById("guess-text")
 var rNumber = 0
 var guessCount = 0
 
-playBtn.addEventListener("click", function(){
+
+document.getElementById("play-guess-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    prepareToPlay()
+})
+
+document.getElementById("guess-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    guess()
+})
+
+function prepareToPlay(){
     guessInput.classList.remove("hidden")
     guessBtn.classList.remove("hidden")
     guessAnswer.classList.remove("hidden")
@@ -93,25 +104,28 @@ playBtn.addEventListener("click", function(){
     playBtn.classList.add("hidden")
     rNumber = Math.floor(Math.random() * 101);
     console.log("Random number game is: " + rNumber)
-})
+}
 
-guessBtn.addEventListener("click", function() {
+function guess() {
     const val = parseInt(guessInput.value);
     guessCount++;
     if(val > rNumber) {
         guessAnswer.textContent = "Guess Lower"
+        guessInput.value = "";
     } else if(val < rNumber) {
         guessAnswer.textContent = "Guess Higher"
+        guessInput.value = "";
     } else if(val == rNumber){
-        guessAnswer.textContent = "Hooray! You guessed correctly in " + guessCount + " tries!";
+        guessAnswer.textContent = "Hooray! " + rNumber + " is correct and it only took you " + guessCount + " tries!";
         playBtn.classList.remove("hidden")
         guessInput.classList.add("hidden")
         guessBtn.classList.add("hidden")
         guessTxt.classList.add("hidden")
-        guessInput.value = ""
+        guessInput.value = "";
         guessCount = 0;
     } else {
         guessAnswer.textContent = "Incorrect value!"
+        guessInput.value = "";
     }
-})
+}
 

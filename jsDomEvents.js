@@ -37,6 +37,17 @@ document.getElementById("clearTodo").addEventListener("click", function() {
     document.getElementById("todoList").replaceChildren()
 })
 
+// Mr. Duck welcome on load
+let username = "";
+window.addEventListener("load", (event) => {
+    username = JSON.parse(localStorage.getItem('username')) || "";
+    if(username === "") {
+        username = prompt("Hello, what is your name?");
+        localStorage.setItem('username', JSON.stringify(username));
+    } 
+        document.getElementById("duck-name").textContent = "Hey, " + username + "! Tell me about you problem."
+});
+
 //duck exercise
   async function duckExplain(){
     const newDuckInput = document.getElementById("duck-input").value;
@@ -60,26 +71,14 @@ document.getElementById("clearTodo").addEventListener("click", function() {
     }, 2000);
 }
 
-document.getElementById("duck-input").addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
+document.getElementById("duckForm").addEventListener("submit", (e) => {
+    e.preventDefault();
         duckExplain();
-    }
-})
-
-document.getElementById("explain-button").addEventListener("click", function() {
-    duckExplain();
 })
 
 document.getElementById("duck-img").addEventListener("mouseover", function() {
     console.log("quack")
 })
-
-// Mr. Duck welcome on load
-window.addEventListener("load", (event) => {
-    username = prompt("Hello, what is your name?")
-    document.getElementById("duck-name").textContent = "Hey, " + username + "! Tell me about you problem."
-    const newDuckInput = document.getElementById("duck-input").value;
-});
 
 async function fetchJoke() {
     const response = await fetch('https://v2.jokeapi.dev/joke/Programming?type=single');
